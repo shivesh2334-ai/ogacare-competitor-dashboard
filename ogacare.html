@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OGA Care · Competitor Watch</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root{
+    --ink:#132320;
+    --paper:#F7F5EF;
+    --card:#FFFFFF;
+    --teal:#2a9d8f;
+    --teal-dark:#1c6f65;
+    --amber:#c98a2c;
+    --red:#b3462c;
+    --line:#dfdbcf;
+    --muted:#5f6f6b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.45;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 20px 60px;}
+  header{
+    border-bottom:2px solid var(--ink);
+    padding-bottom:18px;
+    margin-bottom:24px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:12px;
+  }
+  header h1{
+    font-size:1.7rem;
+    margin:0 0 4px;
+    letter-spacing:-0.01em;
+  }
+  header p{margin:0;color:var(--muted);font-size:0.92rem;}
+  .badge{
+    background:var(--teal);
+    color:#fff;
+    padding:5px 12px;
+    border-radius:3px;
+    font-size:0.8rem;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  section{margin-bottom:38px;}
+  h2{
+    font-size:1.05rem;
+    margin:0 0 14px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--line);
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:14px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:16px 18px;
+  }
+  .card h3{
+    margin:0 0 2px;
+    font-size:1.05rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .tier{
+    font-size:0.68rem;
+    font-weight:700;
+    padding:2px 8px;
+    border-radius:20px;
+    text-transform:none;
+  }
+  .tier.high{background:#f6e1db;color:var(--red);}
+  .tier.med{background:#f3e6cb;color:var(--amber);}
+  .tier.low{background:#dcece7;color:var(--teal-dark);}
+  .card .role{color:var(--muted);font-size:0.82rem;margin:0 0 10px;}
+  .card dl{margin:0;font-size:0.86rem;}
+  .card dt{font-weight:600;margin-top:8px;color:var(--teal-dark);}
+  .card dd{margin:2px 0 0;color:var(--ink);}
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--card);
+    font-size:0.84rem;
+  }
+  th,td{
+    border:1px solid var(--line);
+    padding:9px 10px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{background:var(--ink);color:#fff;font-weight:600;font-size:0.78rem;}
+  tr:nth-child(even) td{background:#fbfaf6;}
+  td.us{background:#e4f2ef!important;font-weight:600;}
+  .table-scroll{overflow-x:auto;}
+  .chart-box{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:18px;
+    max-width:640px;
+  }
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;}
+  .dot.g{background:var(--teal);} .dot.y{background:var(--amber);} .dot.r{background:var(--red);}
+  footer{
+    border-top:1px solid var(--line);
+    margin-top:30px;
+    padding-top:14px;
+    color:var(--muted);
+    font-size:0.78rem;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <h1>Competitor Watch — Indian Clinic EMR Market</h1>
+      <p>Benchmarking OGA Care (ogacare.in) against the clinic/EMR field · compiled 13 Sep 2026</p>
+    </div>
+    <span class="badge">6 competitors tracked</span>
+  </header>
+
+  <section>
+    <h2>Threat snapshot</h2>
+    <div class="grid">
+
+      <div class="card">
+        <h3>TatvaCare <span class="tier high">Primary threat</span></h3>
+        <p class="role">TatvaPractice — ABDM-certified EMR + practice management</p>
+        <dl>
+          <dt>Advantage</dt><dd>NHA-approved, ABDM-certified with native ABHA creation in the consult flow; HIPAA-aligned, ISO 27001, DPDPA-compliant; HL7/FHIR + HIS/lab/pharmacy connectors; markets itself as "India's fastest-growing EMR."</dd>
+          <dt>Threat to OGA Care</dt><dd>Closest positioning match — small clinic to hospital EMR with certified ABDM depth OGA Care doesn't yet publicly claim. Active content engine pushing ABDM-urgency messaging to convert undecided clinics.</dd>
+          <dt>Gaps we can exploit</dt><dd>Reviews flag setup/integration friction; AI is not the headline feature — positioning leans compliance-first, not AI-native.</dd>
+        </dl>
+      </div>
+
+      <div class="card">
+        <h3>Eka Care <span class="tier high">High</span></h3>
+        <p class="role">"AI-native Health OS" — EMR, ABDM Connect, patient PHR app</p>
+        <dl>
+          <dt>Advantage</dt><dd>Deepest ABHA/PHR consumer network of the group (patient-side app + doctor EMR), EkaScribe voice-to-note AI, DocAssist clinical guidance, vernacular/multilingual prescriptions, WhatsApp-native follow-ups.</dd>
+          <dt>Threat to OGA Care</dt><dd>Two-sided network effect (patients + doctors) is hard to out-market; AI-first brand competes directly on OGA Care's "AI-native" claim.</dd>
+          <dt>Gaps we can exploit</dt><dd>Value pitch leans patient/record aggregation over deep single-clinic customization; third-party comparisons note it's strongest where the patient's own doctors are already on Eka.</dd>
+        </dl>
+      </div>
+
+      <div class="card">
+        <h3>Practo Ray <span class="tier med">Medium</span></h3>
+        <p class="role">Clinic module of Practo's doctor-discovery marketplace</p>
+        <dl>
+          <dt>Advantage</dt><dd>Largest patient-discovery funnel in India; ABHA sync pushes records to patients' digital locker automatically; WhatsApp/SMS reminders, integrated payments.</dd>
+          <dt>Threat to OGA Care</dt><dd>Distribution muscle, not product depth — clinics adopt Ray to be discoverable, not for clinical AI.</dd>
+          <dt>Gaps we can exploit</dt><dd>Reviewers consistently flag no AI documentation, basic billing, limited IPD, and vendor lock-in to the Practo ecosystem — directly opposite OGA Care's AI-assistant + custom-branding pitch.</dd>
+        </dl>
+      </div>
+
+      <div class="card">
+        <h3>MocDoc <span class="tier med">Medium</span></h3>
+        <p class="role">HMS/EMR — OPD to hospital scale, IVF/fertility niche strength</p>
+        <dl>
+          <dt>Advantage</dt><dd>Full OPD+IPD+pharmacy+lab+billing suite; AIIMS/MoHFW guideline-driven prescription suggestions; ABDM/HFR-oriented for NABH pathways; strong in specialty niches (fertility/IVF).</dd>
+          <dt>Threat to OGA Care</dt><dd>Scale advantage in hospital/multi-department accounts — a path upmarket OGA Care doesn't compete on today.</dd>
+          <dt>Gaps we can exploit</dt><dd>Built for facility-wide HMS, not the fast solo-doctor onboarding OGA Care leads with; heavier implementation.</dd>
+        </dl>
+      </div>
+
+      <div class="card">
+        <h3>KareXpert <span class="tier low">Low (for now)</span></h3>
+        <p class="role">Jio Platforms-funded enterprise HIMS (HMS+EMR+LIMS+PACS+telemedicine)</p>
+        <dl>
+          <dt>Advantage</dt><dd>Deep-pocketed backer, 500+ hospitals across 70+ cities, full stack including PACS/RIS and connected-ambulance modules — genuine enterprise scale.</dd>
+          <dt>Threat to OGA Care</dt><dd>Not a direct competitor for solo doctors/small clinics; watch for a down-market push given Jio's distribution reach.</dd>
+          <dt>Gaps / caution</dt><dd>Sources disagree on live ABDM status — one 2023 vendor release claims certification complete, a mid-2026 comparison site says ABDM is "on the roadmap, not live" and SOC 2 Type II is still in progress. Verify before citing in any client-facing comparison.</dd>
+        </dl>
+      </div>
+
+      <div class="card">
+        <h3>Clinicea <span class="tier low">Low</span></h3>
+        <p class="role">Highly customizable specialty EMR, 20+ specialties, global footprint</p>
+        <dl>
+          <dt>Advantage</dt><dd>Best-in-class customization — converts paper case sheets into bespoke digital EMR per clinic; strong multilingual prescription/invoice customization; loyal aesthetics/IVF/multi-branch client base.</dd>
+          <dt>Threat to OGA Care</dt><dd>Competes on customization depth, a space OGA Care also claims via specialty-aware templates — but Clinicea's is white-glove/bespoke, not self-serve.</dd>
+          <dt>Gaps we can exploit</dt><dd>No prominent India-specific ABDM/ABHA messaging found — sales-led, custom pricing, slower self-serve onboarding than OGA Care's same-day setup.</dd>
+        </dl>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Feature comparison</h2>
+    <div class="table-scroll">
+    <table>
+      <tr>
+        <th>Dimension</th>
+        <th>OGA Care</th>
+        <th>TatvaCare</th>
+        <th>Eka Care</th>
+        <th>Practo Ray</th>
+        <th>MocDoc</th>
+        <th>KareXpert</th>
+        <th>Clinicea</th>
+      </tr>
+      <tr>
+        <td><strong>ABDM / ABHA</strong></td>
+        <td class="us">ABHA workflow not publicly documented on site yet</td>
+        <td>NHA-approved, ABDM-certified, native ABHA in consult flow</td>
+        <td>Deep ABHA/HFR/HPR + consumer PHR linkage</td>
+        <td>ABHA sync to patient locker; HIP/HIU certified</td>
+        <td>ABDM-enabled, HFR-oriented, NABH pathway support</td>
+        <td>Certified per vendor (2023); "roadmap not live" per 2026 3rd-party review — unverified</td>
+        <td>No prominent ABDM/ABHA claim found</td>
+      </tr>
+      <tr>
+        <td><strong>Offline support</strong></td>
+        <td class="us">"Offline-safe billing" that reconciles automatically</td>
+        <td>Not prominently marketed</td>
+        <td>Not prominently marketed (cloud-first)</td>
+        <td>Not prominently marketed</td>
+        <td>Not prominently marketed</td>
+        <td>Not prominently marketed (enterprise cloud)</td>
+        <td>Not prominently marketed</td>
+      </tr>
+      <tr>
+        <td><strong>Customisable EMR</strong></td>
+        <td class="us">Specialty-aware templates, custom Rx/invoice branding (Premium+)</td>
+        <td>Configurable specialty templates, secure API integrations</td>
+        <td>EMR customised per specialty; predefined Rx templates</td>
+        <td>Basic; limited specialty depth per reviews</td>
+        <td>Configurable workflows, specialty modules</td>
+        <td>Pre-integrated modular architecture, enterprise customisation</td>
+        <td>Bespoke, paper-to-digital case sheet conversion — deepest customisation in the set</td>
+      </tr>
+      <tr>
+        <td><strong>Multilingual prescriptions</strong></td>
+        <td class="us">Not confirmed on public site</td>
+        <td>Not confirmed</td>
+        <td><strong>Yes</strong> — vernacular Rx explicitly marketed</td>
+        <td>Not confirmed</td>
+        <td>Not confirmed</td>
+        <td>Not confirmed</td>
+        <td><strong>Yes</strong> — multilingual paperwork explicitly marketed</td>
+      </tr>
+      <tr>
+        <td><strong>AI clinical support</strong></td>
+        <td class="us">AI assistant drafts Rx, summarises visits, flags interactions (Basic+)</td>
+        <td>Content-led, not AI-first; PubMed access add-on</td>
+        <td>EkaScribe (voice-to-note) + DocAssist guidance — strong AI narrative</td>
+        <td>None documented; reviewers note "no AI documentation"</td>
+        <td>Guideline-driven Rx suggestions (AIIMS/MoHFW)</td>
+        <td>"AI-driven" positioning, enterprise-wide</td>
+        <td>None documented; customisation-led, not AI-led</td>
+      </tr>
+      <tr>
+        <td><strong>Hospital / pharma reach</strong></td>
+        <td class="us">Clinic/solo-doctor focus only — Custom plan for multi-location groups</td>
+        <td>Clinics → hospitals via HIS/lab/pharmacy APIs</td>
+        <td>"Works with any hospital EMR" — API/agent layer</td>
+        <td>Clinic-first; limited IPD</td>
+        <td>Full OPD+IPD+pharmacy+lab, hospital-grade</td>
+        <td>Full HIMS+LIMS+PACS+pharmacy, 500+ hospitals</td>
+        <td>Clinic/aesthetics-led; not hospital/IPD focused</td>
+      </tr>
+      <tr>
+        <td><strong>Scale (public signal)</strong></td>
+        <td class="us">Early-stage; live counters not yet populated on site</td>
+        <td>"India's fastest-growing EMR" (self-claimed)</td>
+        <td>Large consumer + doctor network, Bengaluru-based</td>
+        <td>Largest doctor-discovery network in India</td>
+        <td>Widely deployed hospital HMS, ~4.8/5 review scores</td>
+        <td>500+ hospitals, 70+ cities, Jio-backed</td>
+        <td>15,000+ patients (single testimonial), 20+ specialties, 5 continents</td>
+      </tr>
+      <tr>
+        <td><strong>Specialty depth</strong></td>
+        <td class="us">Multi-specialty templates (dental, pediatrics, derm, ayurveda, etc.)</td>
+        <td>General clinic + hospital, not specialty-niche</td>
+        <td>General + chronic-disease trackers</td>
+        <td>General, dental charting add-on</td>
+        <td>Strong fertility/IVF niche</td>
+        <td>Enterprise general HIMS</td>
+        <td><strong>Deepest</strong> — 20+ specialty-tuned EMRs, aesthetics/IVF strength</td>
+      </tr>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Relative threat level (qualitative, 1–10)</h2>
+    <div class="chart-box">
+      <canvas id="threatChart" height="220"></canvas>
+    </div>
+    <p style="font-size:0.78rem;color:var(--muted);max-width:640px;">
+      Scored on positioning overlap with OGA Care's solo-doctor/small-clinic AI-EMR niche, not absolute company size —
+      e.g. KareXpert is a large company but a low near-term threat because it plays in enterprise hospitals, not solo/small clinics.
+    </p>
+  </section>
+
+  <section>
+    <h2>What to do next</h2>
+    <div class="grid">
+      <div class="card">
+        <h3 style="font-size:0.95rem;"><span class="dot r"></span>Close the ABDM/ABHA gap</h3>
+        <dd>TatvaCare, Eka Care, Practo Ray and MocDoc all lead with certified or well-documented ABHA workflows. OGA Care's public site doesn't yet show this — highest-priority messaging and/or roadmap item.</dd>
+      </div>
+      <div class="card">
+        <h3 style="font-size:0.95rem;"><span class="dot y"></span>Publish multilingual Rx support</h3>
+        <dd>Only Eka Care and Clinicea visibly market vernacular/multilingual prescriptions. If OGA Care already supports this, it isn't showing on the marketing site — easy differentiation if true.</dd>
+      </div>
+      <div class="card">
+        <h3 style="font-size:0.95rem;"><span class="dot g"></span>Lean into AI + offline + same-day onboarding</h3>
+        <dd>OGA Care's combination of AI-native drafting, offline-safe billing and same-day setup isn't matched by any single competitor here — Eka has AI, TatvaCare has compliance, Clinicea has customisation, but none combine all three with OGA Care's onboarding speed.</dd>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Sources: public vendor sites, app-store listings, and third-party comparison/review sites (Software Finder, Capterra, GetApp, NABH, SourceForge, Codingclave, Softpital, Patient Square, Medisray, MedKyo) as of 13 Sep 2026. Vendor marketing claims are self-reported and not independently verified — flagged explicitly where sources conflict (see KareXpert). Re-run this scan periodically to catch positioning changes.
+  </footer>
+
+</div>
+
+<script>
+const ctx = document.getElementById('threatChart');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['TatvaCare','Eka Care','Practo Ray','MocDoc','Clinicea','KareXpert'],
+    datasets: [{
+      label: 'Threat to OGA Care (near-term)',
+      data: [9, 8, 6, 5, 4, 3],
+      backgroundColor: ['#b3462c','#b3462c','#c98a2c','#c98a2c','#2a9d8f','#2a9d8f'],
+      borderRadius: 4,
+      maxBarThickness: 46
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { min: 0, max: 10, grid: { color: '#eee' } },
+      y: { grid: { display: false } }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
